@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+	box-sizing: border-box;
+}
+
+html {
+	width: 414px;
+	height: 800px;
+	color: theme('colors.gray.700');
+}
+
+body {
+	margin: 0px;
+}
+
+@layer utilities {
+	/* Containers */
+	.container-center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.container-row {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.container-col {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
