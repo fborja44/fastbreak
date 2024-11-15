@@ -2,6 +2,7 @@ interface TokenProps {
 	children?: React.ReactNode;
 	icon?: React.ReactNode;
 	variant?: string;
+	value?: string;
 }
 
 const theme: {
