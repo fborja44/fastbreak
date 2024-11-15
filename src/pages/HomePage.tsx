@@ -6,6 +6,7 @@ import { teams } from '../common/teams';
 import Dropdown from '../components/Dropdown/Dropdown';
 import { formatDate } from '../utils/date';
 import Footer from '../components/Footer/Footer';
+import GameCard from '../components/Game/GameCard';
 
 const HomePage = () => {
 	return (
@@ -42,8 +43,12 @@ const HomePage = () => {
 					<option>Today - {formatDate(new Date())}</option>
 				</Dropdown>
 			</Header>
-			<main className='flex-1'></main>
-			<Footer></Footer>
+			<main className='flex-auto self-stretch p-1.5 container-col gap-1.5 overflow-y-auto min-h-2'>
+				{new Array(6).fill(null).map(() => (
+					<GameCard />
+				))}
+			</main>
+			<Footer />
 		</PageLayout>
 	);
 };

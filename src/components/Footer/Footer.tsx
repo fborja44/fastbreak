@@ -9,7 +9,7 @@ import NBA from '../../assets/img/nba.svg';
 
 const Footer = () => {
 	return (
-		<footer className='container-row bg-white w-full py-1.5 justify-around border-t border-gray-200'>
+		<footer className='absolute container-row bottom-0 bg-white w-full py-1.5 justify-around border-t border-gray-200'>
 			<FooterButton label='Feed' icon={<CalendarDaysIcon />} to='/' />
 			<FooterButton label='Standings' icon={<TrophyIcon />} to='/standings' />
 			<Link to='/teams'>

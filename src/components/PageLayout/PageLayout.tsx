@@ -4,7 +4,7 @@ interface PageLayoutProps {
 
 const PageLayout = ({ children }: PageLayoutProps) => {
 	return (
-		<div className='flex flex-col grow relative w-screen max-h-page'>
+		<div className='flex flex-col h-full relative w-screen max-h-page'>
 			{children}
 		</div>
 	);

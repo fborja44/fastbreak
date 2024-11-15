@@ -16,6 +16,22 @@ body {
 	margin: 0px;
 }
 
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+	/* Customize the scrollbar width */
+	@apply w-1.5;
+}
+
+::-webkit-scrollbar-track {
+	/* Customize the scrollbar track */
+	@apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+	/* Customize the scrollbar thumb */
+	@apply bg-gray-200 rounded-full;
+}
+
 @layer utilities {
 	/* Containers */
 	.container-center {
