@@ -3,6 +3,9 @@ import PageLayout from '../components/PageLayout/PageLayout';
 import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 import Token from '../components/Token/Token';
 import { teams } from '../common/teams';
+import Dropdown from '../components/Dropdown/Dropdown';
+import { formatDate } from '../utils/date';
+import Footer from '../components/Footer/Footer';
 
 const HomePage = () => {
 	return (
@@ -35,7 +38,12 @@ const HomePage = () => {
 							</Token>
 						))}
 				</div>
+				<Dropdown>
+					<option>Today - {formatDate(new Date())}</option>
+				</Dropdown>
 			</Header>
+			<main className='flex-1'></main>
+			<Footer></Footer>
 		</PageLayout>
 	);
 };

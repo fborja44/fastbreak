@@ -9,7 +9,7 @@
 html {
 	width: 414px;
 	height: 800px;
-	color: theme('colors.gray.700');
+	@apply text-gray-700 bg-stone-50;
 }
 
 body {

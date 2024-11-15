@@ -2,9 +2,15 @@
 export default {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
+		fontFamily: {
+			sans: ['Inter', 'sans-serif'],
+		},
 		extend: {
 			fontSize: {
 				xxs: '0.5rem' /* 10px */,
+			},
+			boxShadow: {
+				paper: '0px 4px 4px 0px rgba(11, 12, 40, 0.05)',
 			},
 		},
 	},
