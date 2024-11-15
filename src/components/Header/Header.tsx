@@ -16,9 +16,9 @@ const Header = ({ children, title, icon }: HeaderProps) => {
 				<img src='/assets/icons/icon32.png' className='h-6 w-6' />
 				<div className='flex-1'></div>
 			</div>
-			<div className='w-full flex-col gap-1.5 px-2.5 py-1 items-start'>
+			<div className='w-full flex flex-col gap-1.5 px-2.5 py-1 items-start'>
 				<div className='container-row justify-start gap-x-1.5'>
-					<span className='w-5 h-5'>{icon}</span>
+					{icon && <span className='w-5 h-5'>{icon}</span>}
 					<span className='font-bold'>{title}</span>
 				</div>
 				{children}
