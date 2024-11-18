@@ -74,7 +74,7 @@ const columnHelper = createColumnHelper<Standings>();
 const columns = [
 	columnHelper.accessor('number', {
 		cell: (info) => (
-			<span className='text-gray-400 text-xs font-medium italic'>
+			<span className='text-gray-400 text-[11px] font-medium'>
 				{info.getValue()}
 			</span>
 		),
@@ -94,7 +94,7 @@ const columns = [
 		},
 		header: () => 'Team',
 		footer: (info) => info.column.id,
-		size: 140,
+		size: 125,
 	}),
 	columnHelper.accessor('wins', {
 		header: () => 'W',
@@ -109,16 +109,26 @@ const columns = [
 	}),
 	columnHelper.accessor('percentage', {
 		cell: (info) => (
-			<span className='font-semibold'>{formatPercent(info.getValue())}</span>
+			<span className='font-medium italic'>
+				{formatPercent(info.getValue())}
+			</span>
 		),
 		header: () => 'PCT',
 		footer: (info) => info.column.id,
 		size: 60,
 	}),
 	columnHelper.accessor('gamesBehind', {
+		cell: (info) => {
+			const gamesBehind = info.getValue();
+			return gamesBehind > 0 ? (
+				<span className='font-medium italic'>gamesBehind</span>
+			) : (
+				'-'
+			);
+		},
 		header: () => 'GB',
 		footer: (info) => info.column.id,
-		size: 60,
+		size: 35,
 	}),
 	columnHelper.accessor('home', {
 		header: () => 'Home',
@@ -146,6 +156,16 @@ const columns = [
 		size: 60,
 	}),
 	columnHelper.accessor('streak', {
+		cell: (info) => {
+			const streak = info.getValue();
+			if (streak > 0) {
+				return <span className='font-medium text-green-500'>W{streak}</span>;
+			} else if (streak < 0) {
+				return <span className='font-medium text-red-500'>L{streak}</span>;
+			} else {
+				return '-';
+			}
+		},
 		header: () => 'STRK',
 		footer: (info) => info.column.id,
 		size: 60,
@@ -153,7 +173,7 @@ const columns = [
 ];
 
 const ScrollableTable: React.FC = () => {
-	const [data, _setData] = React.useState(() => [...defaultData]);
+	const [data] = useState(() => [...defaultData]);
 
 	const table = useReactTable({
 		data,
@@ -182,7 +202,7 @@ const ScrollableTable: React.FC = () => {
 								return (
 									<th
 										key={header.id}
-										className='bg-white text-xs text-gray-500 font-normal uppercase py-1 px-2 border-b border-gray-200 text-left'
+										className='bg-white text-xxs text-gray-500 font-normal uppercase py-1 px-2 border-b border-gray-200 text-left'
 										style={{ ...getCommonPinningStyles(column) }}
 									>
 										{header.isPlaceholder
@@ -205,7 +225,7 @@ const ScrollableTable: React.FC = () => {
 								return (
 									<td
 										key={cell.id}
-										className='bg-stone-50 text-gray-700 py-1 px-2 text-sm border-b border-gray-200'
+										className='bg-stone-50 text-gray-700 py-0.5 px-2 text-xs border-b border-gray-200'
 										style={{ ...getCommonPinningStyles(column) }}
 									>
 										{flexRender(cell.column.columnDef.cell, cell.getContext())}

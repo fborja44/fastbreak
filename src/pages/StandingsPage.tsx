@@ -18,7 +18,7 @@ const StandingsPage = () => {
 			}
 		>
 			<section className='w-full scrollbar-none'>
-				<div className='container-row w-full h-full pt-2.5 pb-1.5 px-1.5 gap-1 text-gray-600 bg-white uppercase text-sm border-b border-gray-200'>
+				<div className='container-row w-full h-full pt-2.5 pb-1.5 px-1.5 gap-1 text-gray-600 bg-white uppercase text-xs border-b border-gray-200'>
 					<span className='w-6 h-6'>
 						<Logo logo='EAST' />
 					</span>
@@ -27,7 +27,7 @@ const StandingsPage = () => {
 				<div className='overflow-x-auto scrollbar-hide'>
 					<ScrollableTable />
 				</div>
-				<div className='container-row w-full h-full pt-2.5 pb-1.5 px-1.5 gap-1 text-gray-600 bg-white uppercase text-sm border-b border-gray-200'>
+				<div className='container-row w-full h-full pt-2.5 pb-1.5 px-1.5 gap-1 text-gray-600 bg-white uppercase text-xs border-b border-gray-200'>
 					<span className='w-6 h-6'>
 						<Logo logo='WEST' />
 					</span>

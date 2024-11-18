@@ -9,7 +9,7 @@ import NBA from '../../assets/img/nba.svg';
 
 const Footer = () => {
 	return (
-		<footer className='absolute container-row bottom-0 bg-white w-full h-12 py-1.5 justify-around border-t border-gray-200 z-10'>
+		<footer className='absolute container-row bottom-0 bg-white w-full h-11 justify-around border-t border-gray-200 z-10'>
 			<FooterButton label='Feed' icon={<CalendarDaysIcon />} to='/' />
 			<FooterButton label='Standings' icon={<TrophyIcon />} to='/standings' />
 			<Link to='/teams'>
@@ -30,9 +30,9 @@ export interface FooterButtonProps extends LinkProps {
 
 export const FooterButton = ({ to, icon, label }: FooterButtonProps) => {
 	return (
-		<Link to={to} className='container-col text-gray-400'>
-			{icon && <span className='w-5 h-5'>{icon}</span>}
-			{label && <span className='whitespace-nowrap text-xs'>{label}</span>}
+		<Link to={to} className='container-col text-gray-400 pt-0.5'>
+			{icon && <span className='w-4 h-4'>{icon}</span>}
+			{label && <span className='whitespace-nowrap text-xxs'>{label}</span>}
 		</Link>
 	);
 };

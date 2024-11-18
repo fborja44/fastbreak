@@ -7,7 +7,7 @@ export default {
 		},
 		extend: {
 			fontSize: {
-				xxs: '0.5rem' /* 10px */,
+				xxs: '0.625rem' /* 11px */,
 			},
 			boxShadow: {
 				paper: '0px 4px 4px 0px rgba(11, 12, 40, 0.05)',

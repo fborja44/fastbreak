@@ -4,8 +4,8 @@ import StyledLink from '../StyledLink/StyledLink';
 
 const GameCard = () => {
 	return (
-		<div className='w-full flex flex-col gap-1.5 px-3 py-2.5 bg-white border border-gray rounded-xl shadow-paper'>
-			<div className='container-row justify-between text-gray-500 text-xs'>
+		<div className='w-full flex flex-col gap-1.5 px-3 py-2 bg-white border border-gray rounded-xl shadow-paper'>
+			<div className='container-row justify-between text-gray-500 text-xxs'>
 				<span>NBA Regular Season</span>
 				<div>
 					<span>12:00 PM</span>
@@ -13,7 +13,7 @@ const GameCard = () => {
 			</div>
 			<TeamSlot />
 			<TeamSlot />
-			<div className='w-full container-row justify-between px-6 text-xs border-t border-gray-100 pt-2.5 mt-0.5'>
+			<div className='w-full container-row justify-between px-6 text-xs border-t border-gray-100 pt-2 mt-0.5'>
 				<StyledLink to='box-score'>Box Score</StyledLink>
 				<StyledLink to='box-score'>Betting Odds</StyledLink>
 			</div>
@@ -33,10 +33,10 @@ const TeamSlot = ({ team, score = '-' }: TeamSlotProps) => {
 		<div className='container-row justify-between w-full'>
 			<div className='container-row gap-1'>
 				<Logo logo={team?.abbreviation} />
-				<span className='text-gray-900 font-medium text-sm'>
+				<span className='text-gray-900 font-medium text-xs'>
 					{team?.fullName ?? 'Team'}
 				</span>
-				<span className='text-gray-500 text-xs ml-1'>
+				<span className='text-gray-500 text-xxs ml-1'>
 					{team?.abbreviation ?? 'NBA'}
 				</span>
 			</div>

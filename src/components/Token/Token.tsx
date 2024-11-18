@@ -55,10 +55,10 @@ const Token = ({ children, icon, variant = 'default' }: TokenProps) => {
 
 	return (
 		<div
-			className={`container-row w-fit rounded-md px-1.5 py-0.5 gap-x-0.5 ${colors.color} ${colors.bg} border ${colors.border}`}
+			className={`container-row w-fit rounded-md px-1.5 py-0.5 gap-x-1 ${colors.color} ${colors.bg} border ${colors.border}`}
 		>
 			{icon && <span className='w-4 h-4 container-center'>{icon}</span>}
-			<span className={`font-semibold text-xs uppercase whitespace-nowrap`}>
+			<span className={`font-semibold text-xxs uppercase whitespace-nowrap`}>
 				{children}
 			</span>
 		</div>
