@@ -16,6 +16,12 @@ body {
 	margin: 0px;
 }
 
+table {
+	/* box-shadow and borders will not work with positon: sticky otherwise */
+	border-collapse: separate !important;
+	border-spacing: 0;
+}
+
 /* Scrollbar Styles */
 ::-webkit-scrollbar {
 	/* Customize the scrollbar width */
@@ -50,5 +56,9 @@ body {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+	}
+
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
 	}
 }

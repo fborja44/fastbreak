@@ -22,7 +22,7 @@ const PageLayout = ({
 			<Header rounded={headerRounded} icon={headerIcon} title={headerTitle}>
 				{headerContent}
 			</Header>
-			<main className='flex-auto self-stretch overflow-y-auto min-h-2'>
+			<main className='flex-auto self-stretch overflow-y-auto min-h-2 pb-11'>
 				{children}
 			</main>
 			<Footer />

@@ -10,7 +10,7 @@ interface HeaderProps {
 const Header = ({ children, title, icon, rounded }: HeaderProps) => {
 	return (
 		<header
-			className={`container-col w-full bg-white shadow-paper pt-2 border-b border-gray-200 ${
+			className={`container-col z-10 relative w-full bg-white shadow-paper pt-2 border-b border-gray-200 ${
 				rounded ? 'rounded-b-xl pb-3' : ''
 			}`}
 		>
