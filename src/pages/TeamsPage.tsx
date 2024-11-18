@@ -12,16 +12,20 @@ const TeamsPage = () => {
 	return (
 		<PageLayout
 			headerTitle='League Teams'
-			headerIcon={<Logo />}
+			headerIcon={<Logo size={5} />}
 			headerContent={
 				<>
 					<HeaderRow>
 						<Searchbar placeholder='Search for a team...' />
 					</HeaderRow>
 					<Tabs>
-						<StyledTab icon={<Logo logo='NBA' />}>League</StyledTab>
-						<StyledTab icon={<Logo logo='EAST' />}>East Conf.</StyledTab>
-						<StyledTab icon={<Logo logo='WEST' />}>West Conf.</StyledTab>
+						<StyledTab icon={<Logo logo='NBA' size={5} />}>League</StyledTab>
+						<StyledTab icon={<Logo logo='EAST' size={5} />}>
+							East Conf.
+						</StyledTab>
+						<StyledTab icon={<Logo logo='WEST' size={5} />}>
+							West Conf.
+						</StyledTab>
 					</Tabs>
 				</>
 			}
