@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import Title from '../../assets/img/title.svg';
+import { useRef } from 'react';
+import { useDraggable } from 'react-use-draggable-scroll';
 
 interface HeaderProps {
 	children?: React.ReactNode;
@@ -42,5 +44,17 @@ interface HeaderRowProps {
 }
 
 export const HeaderRow = ({ children }: HeaderRowProps) => {
-	return <div className='w-full container-row gap-2.5 px-2.5'>{children}</div>;
+	const ref =
+		useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
+	const { events } = useDraggable(ref);
+
+	return (
+		<div
+			className='w-full container-row gap-2.5 px-2.5 overflow-x-auto scrollbar-hide'
+			ref={ref}
+			{...events}
+		>
+			{children}
+		</div>
+	);
 };

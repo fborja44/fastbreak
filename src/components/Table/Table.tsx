@@ -5,11 +5,12 @@ import {
 	getCoreRowModel,
 	useReactTable,
 } from '@tanstack/react-table';
-import React, { CSSProperties, useState } from 'react';
+import React, { CSSProperties, useRef, useState } from 'react';
 import { Team } from '../../types';
 import { teams } from '../../common/teams';
 import Logo from '../Logo/Logo';
 import { formatPercent } from '../../utils/string';
+import { useDraggable } from 'react-use-draggable-scroll';
 
 interface Standings {
 	number: number;
@@ -133,27 +134,27 @@ const columns = [
 	columnHelper.accessor('home', {
 		header: () => 'Home',
 		footer: (info) => info.column.id,
-		size: 60,
+		size: 56,
 	}),
 	columnHelper.accessor('away', {
 		header: () => 'Away',
 		footer: (info) => info.column.id,
-		size: 60,
+		size: 56,
 	}),
 	columnHelper.accessor('div', {
 		header: () => 'Div',
 		footer: (info) => info.column.id,
-		size: 60,
+		size: 56,
 	}),
 	columnHelper.accessor('conf', {
 		header: () => 'Conf',
 		footer: (info) => info.column.id,
-		size: 60,
+		size: 56,
 	}),
 	columnHelper.accessor('last10', {
 		header: () => 'L10',
 		footer: (info) => info.column.id,
-		size: 60,
+		size: 56,
 	}),
 	columnHelper.accessor('streak', {
 		cell: (info) => {
@@ -168,11 +169,15 @@ const columns = [
 		},
 		header: () => 'STRK',
 		footer: (info) => info.column.id,
-		size: 60,
+		size: 50,
 	}),
 ];
 
 const ScrollableTable: React.FC = () => {
+	const ref =
+		useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
+	const { events } = useDraggable(ref);
+
 	const [data] = useState(() => [...defaultData]);
 
 	const table = useReactTable({
@@ -187,7 +192,11 @@ const ScrollableTable: React.FC = () => {
 	});
 
 	return (
-		<div className='overflow-x-auto w-full scrollbar-hide'>
+		<div
+			className='overflow-x-auto w-full scrollbar-hide select-none'
+			{...events}
+			ref={ref}
+		>
 			<table
 				className='min-w-full table-fixed border-collapse'
 				style={{
