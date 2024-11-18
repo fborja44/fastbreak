@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Title from '../../assets/img/title.svg';
 
 interface HeaderProps {
@@ -15,10 +16,12 @@ const Header = ({ children, title, icon, rounded }: HeaderProps) => {
 			}`}
 		>
 			<div className='w-full container-row justify-between px-2.5 mb-0.5'>
-				<div className='flex-1'>
+				<Link to='/' className='flex-1'>
 					<img src={Title} className='h-4 w-auto' />
-				</div>
-				<img src='/assets/icons/icon32.png' className='h-6 w-6' />
+				</Link>
+				<Link to='/'>
+					<img src='/assets/icons/icon32.png' className='h-6 w-6' />
+				</Link>
 				<div className='flex-1'></div>
 			</div>
 			<div className='w-full flex flex-col gap-2 pt-1 items-start'>

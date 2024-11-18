@@ -1,4 +1,4 @@
-import { Team } from '../types';
+import { Division, Team } from '../types';
 
 export const teams: Team[] = [
 	// Eastern Conference - Atlantic Division
@@ -252,4 +252,13 @@ export const teams: Team[] = [
 		conference: 'WEST',
 		division: 'Southwest',
 	},
+];
+
+export const divisions: Division[] = [
+	'Atlantic',
+	'Central',
+	'Southeast',
+	'Northwest',
+	'Pacific',
+	'Southwest',
 ];

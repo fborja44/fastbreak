@@ -6,7 +6,7 @@ interface TabsProps {
 
 const Tabs = ({ children }: TabsProps) => {
 	return (
-		<TabList className='container-row w-full border-y border-gray-200 relative'>
+		<TabList className='container-row w-full border-y border-gray-200 relative mt-1'>
 			{children}
 		</TabList>
 	);

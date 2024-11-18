@@ -1,10 +1,11 @@
 import { Team } from '../../types';
+import Card from '../Card/Card';
 import Logo from '../Logo/Logo';
 import StyledLink from '../StyledLink/StyledLink';
 
 const GameCard = () => {
 	return (
-		<div className='w-full flex flex-col gap-1.5 px-3 py-2 bg-white border border-gray rounded-xl shadow-paper'>
+		<Card>
 			<div className='container-row justify-between text-gray-500 text-xxs'>
 				<span>NBA Regular Season</span>
 				<div>
@@ -17,7 +18,7 @@ const GameCard = () => {
 				<StyledLink to='box-score'>Box Score</StyledLink>
 				<StyledLink to='box-score'>Betting Odds</StyledLink>
 			</div>
-		</div>
+		</Card>
 	);
 };
 

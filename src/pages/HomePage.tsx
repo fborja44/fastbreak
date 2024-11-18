@@ -6,6 +6,7 @@ import Dropdown from '../components/Dropdown/Dropdown';
 import { formatDate } from '../utils/date';
 import GameCard from '../components/Game/GameCard';
 import { HeaderRow } from '../components/Header/Header';
+import CardList from '../components/Card/CardList';
 
 const HomePage = () => {
 	return (
@@ -52,11 +53,11 @@ const HomePage = () => {
 			}
 			headerRounded
 		>
-			<div className='container-col gap-1.5 p-1.5'>
+			<CardList>
 				{new Array(6).fill(null).map(() => (
 					<GameCard />
 				))}
-			</div>
+			</CardList>
 		</PageLayout>
 	);
 };
