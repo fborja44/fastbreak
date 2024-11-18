@@ -80,7 +80,7 @@ const columns = [
 		),
 		header: () => '#',
 		footer: (info) => info.column.id,
-		size: 30,
+		size: 20,
 	}),
 	columnHelper.accessor('team', {
 		cell: (info) => {
