@@ -104,7 +104,7 @@ const ScrollableTable = <RowData,>({
 								return (
 									<td
 										key={cell.id}
-										className='bg-white group-hover:bg-blue-50 text-gray-700 py-0.5 px-2 text-xs border-b border-gray-200'
+										className='bg-white h-7 group-hover:bg-blue-50 text-gray-700 py-0.5 px-2 text-xs border-b border-gray-200'
 										style={{ ...getCommonPinningStyles(column) }}
 									>
 										{flexRender(cell.column.columnDef.cell, cell.getContext())}

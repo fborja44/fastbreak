@@ -15,8 +15,8 @@ const GameCard = () => {
 			<TeamSlot />
 			<TeamSlot />
 			<div className='w-full container-row justify-between px-6 text-xxs border-t border-gray-100 pt-2 mt-0.5'>
-				<StyledLink to='box-score'>Box Score</StyledLink>
-				<StyledLink to='box-score'>Betting Odds</StyledLink>
+				<StyledLink to='/box-score'>Box Score</StyledLink>
+				<StyledLink to='/box-score'>Betting Odds</StyledLink>
 			</div>
 		</Card>
 	);

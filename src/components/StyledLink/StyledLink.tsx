@@ -4,7 +4,7 @@ interface StyledLinkProps extends LinkProps {
 	external?: boolean;
 }
 
-const StyledLink = ({ to = '/', children }: StyledLinkProps) => {
+const StyledLink = ({ to = '/', children, external }: StyledLinkProps) => {
 	return (
 		<Link
 			className='text-blue-500 hover:text-indigo-500'

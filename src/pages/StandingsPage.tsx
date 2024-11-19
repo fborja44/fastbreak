@@ -3,6 +3,7 @@ import { TrophyIcon } from '@heroicons/react/24/outline';
 import Tabs, { StyledTab } from '../components/Tabs/Tabs';
 import Logo from '../components/Logo/Logo';
 import StandingsTable from '../components/Table/StandingsTable';
+import TableHeader from '../components/Table/TableHeader';
 
 const StandingsPage = () => {
 	return (
@@ -26,19 +27,13 @@ const StandingsPage = () => {
 			}
 		>
 			<section className='w-full scrollbar-none'>
-				<div className='container-row w-full h-full pt-2 pb-1.5 px-1.5 gap-1 text-gray-600 bg-white uppercase text-xxs border-b border-gray-200'>
-					<span className='w-6 h-6'>
-						<Logo logo='EAST' />
-					</span>
-					<span className='text-gray-500'>Eastern Conference</span>
-				</div>
+				<TableHeader icon={<Logo logo='EAST' className='w-5 h-5' />}>
+					Eastern Conference
+				</TableHeader>
 				<StandingsTable />
-				<div className='container-row w-full h-full pt-2 pb-1.5 px-1.5 gap-1 text-gray-600 bg-white uppercase text-xxs border-b border-gray-200'>
-					<span className='w-6 h-6'>
-						<Logo logo='WEST' />
-					</span>
-					<span className='text-gray-500'>Western Conference</span>
-				</div>
+				<TableHeader icon={<Logo logo='WEST' className='w-5 h-5' />}>
+					Western Conference
+				</TableHeader>
 				<StandingsTable />
 			</section>
 		</PageLayout>

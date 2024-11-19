@@ -9,6 +9,7 @@ import Layout from './pages/Layout.tsx';
 import TeamsPage from './pages/TeamsPage.tsx';
 import LeadersPage from './pages/LeadersPage.tsx';
 import StatsPage from './pages/StatsPage.tsx';
+import BoxScorePage from './pages/BoxScorePage.tsx';
 
 const router = createHashRouter([
 	{
@@ -25,6 +26,7 @@ const router = createHashRouter([
 			{ path: '/teams', element: <TeamsPage /> },
 			{ path: '/stats', element: <StatsPage /> },
 			{ path: '/leaders', element: <LeadersPage /> },
+			{ path: '/box-score', element: <BoxScorePage /> },
 		],
 	},
 ]);

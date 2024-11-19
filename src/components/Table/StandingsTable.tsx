@@ -72,12 +72,12 @@ const columns = [
 		header: () => 'W',
 		cell: (info) => info.renderValue(),
 		footer: (info) => info.column.id,
-		size: 35,
+		size: 28,
 	}),
 	columnHelper.accessor('losses', {
 		header: () => 'L',
 		footer: (info) => info.column.id,
-		size: 35,
+		size: 28,
 	}),
 	columnHelper.accessor('percentage', {
 		cell: (info) => (
@@ -87,7 +87,7 @@ const columns = [
 		),
 		header: () => 'PCT',
 		footer: (info) => info.column.id,
-		size: 55,
+		size: 45,
 	}),
 	columnHelper.accessor('gamesBehind', {
 		cell: (info) => {
@@ -100,32 +100,32 @@ const columns = [
 		},
 		header: () => 'GB',
 		footer: (info) => info.column.id,
-		size: 35,
+		size: 30,
 	}),
 	columnHelper.accessor('home', {
 		header: () => 'Home',
 		footer: (info) => info.column.id,
-		size: 55,
+		size: 48,
 	}),
 	columnHelper.accessor('away', {
 		header: () => 'Away',
 		footer: (info) => info.column.id,
-		size: 55,
+		size: 48,
 	}),
 	columnHelper.accessor('div', {
 		header: () => 'Div',
 		footer: (info) => info.column.id,
-		size: 55,
+		size: 48,
 	}),
 	columnHelper.accessor('conf', {
 		header: () => 'Conf',
 		footer: (info) => info.column.id,
-		size: 55,
+		size: 48,
 	}),
 	columnHelper.accessor('last10', {
 		header: () => 'L10',
 		footer: (info) => info.column.id,
-		size: 55,
+		size: 48,
 	}),
 	columnHelper.accessor('streak', {
 		cell: (info) => {
@@ -140,7 +140,7 @@ const columns = [
 		},
 		header: () => 'STRK',
 		footer: (info) => info.column.id,
-		size: 50,
+		size: 48,
 	}),
 ];
 

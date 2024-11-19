@@ -2,20 +2,20 @@ import { createColumnHelper } from '@tanstack/react-table';
 import React, { useState } from 'react';
 import { Player } from '../../types';
 import { defaultTeam } from '../../common/teams';
-import Logo from '../Logo/Logo';
+// import Logo from '../Logo/Logo';
 import ScrollableTable from './ScrollableTable';
 import { formatPercent } from '../../utils/string';
 
-interface PlayerStats {
-	number: number;
+interface BoxScoreStats {
 	player: Player;
-	position: string;
-	gamesPlayed: number;
-	mpg: number;
+	min: number;
 	pts: number;
+	fgm: number;
+	fga: number;
 	fgPct: number;
 	fg3Pct: number;
-	fg2_pct: number;
+	ftm: number;
+	fta: number;
 	ftPct: number;
 	oreb: number;
 	dreb: number;
@@ -29,6 +29,7 @@ interface PlayerStats {
 
 const defaultPlayer: Player = {
 	team: defaultTeam,
+	position: 'PG',
 	firstName: 'Firstname',
 	lastName: 'Lastname',
 	height: '0',
@@ -40,19 +41,19 @@ const defaultPlayer: Player = {
 	draftNumber: 0,
 };
 
-const defaultData: PlayerStats[] = new Array(30)
+const defaultData: BoxScoreStats[] = new Array(15)
 	.fill(defaultPlayer)
-	.map((player, i) => {
+	.map((player) => {
 		return {
-			number: i + 1,
 			player: player,
-			position: 'XX',
-			gamesPlayed: 0,
-			mpg: 0,
+			min: 0,
 			pts: 0,
+			fgm: 0,
+			fga: 0,
 			fgPct: 0,
 			fg3Pct: 0,
-			fg2_pct: 0,
+			ftm: 0,
+			fta: 0,
 			ftPct: 0,
 			oreb: 0,
 			dreb: 0,
@@ -65,31 +66,23 @@ const defaultData: PlayerStats[] = new Array(30)
 		};
 	});
 
-const columnHelper = createColumnHelper<PlayerStats>();
+const columnHelper = createColumnHelper<BoxScoreStats>();
 
 const columns = [
-	columnHelper.accessor('number', {
-		cell: (info) => (
-			<span className='text-gray-400 text-xxs font-medium'>
-				{info.getValue()}
-			</span>
-		),
-		header: () => '#',
-		footer: (info) => info.column.id,
-		size: 20,
-	}),
 	columnHelper.accessor('player', {
 		cell: (info) => {
 			const player = info.getValue();
 			return (
 				<div className='container-row gap-1'>
-					<Logo logo={player.team.abbreviation} className='w-6 h-6' />
+					{/* <Logo logo={player.team.abbreviation} className='w-6 h-6' /> */}
 					<span className='font-medium'>
 						{player.firstName.charAt(0)}. {player.lastName}
 					</span>
-					<span className='text-xxxs text-blue-500 ml-0.5'>
-						{player.team.abbreviation}
-					</span>
+					{player.position && (
+						<span className='text-xxxs text-gray-500 ml-0.5'>
+							{player.position}
+						</span>
+					)}
 				</div>
 			);
 		},
@@ -97,28 +90,16 @@ const columns = [
 		footer: (info) => info.column.id,
 		size: 160,
 	}),
-	columnHelper.accessor('position', {
-		header: () => 'POS',
-		cell: (info) => info.renderValue(),
-		footer: (info) => info.column.id,
-		size: 35,
-	}),
-	columnHelper.accessor('gamesPlayed', {
-		header: () => 'GP',
+	columnHelper.accessor('min', {
+		header: () => 'MIN',
 		footer: (info) => info.column.id,
 		size: 28,
 	}),
-	columnHelper.accessor('mpg', {
-		cell: (info) => info.getValue().toFixed(1),
-		header: () => 'MIN',
-		footer: (info) => info.column.id,
-		size: 35,
-	}),
 	columnHelper.accessor('pts', {
-		cell: (info) => info.getValue().toFixed(1),
+		cell: (info) => info.getValue(),
 		header: () => 'PTS',
 		footer: (info) => info.column.id,
-		size: 35,
+		size: 32,
 	}),
 	columnHelper.accessor('fgPct', {
 		cell: (info) => formatPercent(info.getValue()),
@@ -139,62 +120,62 @@ const columns = [
 		size: 45,
 	}),
 	columnHelper.accessor('oreb', {
-		cell: (info) => info.getValue().toFixed(1),
+		cell: (info) => info.getValue(),
 		header: () => 'ORB',
 		footer: (info) => info.column.id,
-		size: 35,
+		size: 32,
 	}),
 	columnHelper.accessor('dreb', {
-		cell: (info) => info.getValue().toFixed(1),
+		cell: (info) => info.getValue(),
 		header: () => 'DRB',
 		footer: (info) => info.column.id,
-		size: 35,
+		size: 32,
 	}),
 	columnHelper.accessor('treb', {
-		cell: (info) => info.getValue().toFixed(1),
+		cell: (info) => info.getValue(),
 		header: () => 'TRB',
 		footer: (info) => info.column.id,
-		size: 35,
+		size: 32,
 	}),
 	columnHelper.accessor('treb', {
-		cell: (info) => info.getValue().toFixed(1),
+		cell: (info) => info.getValue(),
 		header: () => 'TRB',
 		footer: (info) => info.column.id,
-		size: 35,
+		size: 32,
 	}),
 	columnHelper.accessor('ast', {
-		cell: (info) => info.getValue().toFixed(1),
+		cell: (info) => info.getValue(),
 		header: () => 'AST',
 		footer: (info) => info.column.id,
-		size: 35,
+		size: 32,
 	}),
 	columnHelper.accessor('stl', {
-		cell: (info) => info.getValue().toFixed(1),
+		cell: (info) => info.getValue(),
 		header: () => 'STL',
 		footer: (info) => info.column.id,
-		size: 35,
+		size: 32,
 	}),
 	columnHelper.accessor('blk', {
-		cell: (info) => info.getValue().toFixed(1),
+		cell: (info) => info.getValue(),
 		header: () => 'BLK',
 		footer: (info) => info.column.id,
-		size: 35,
+		size: 32,
 	}),
 	columnHelper.accessor('tov', {
-		cell: (info) => info.getValue().toFixed(1),
+		cell: (info) => info.getValue(),
 		header: () => 'TOV',
 		footer: (info) => info.column.id,
-		size: 35,
+		size: 32,
 	}),
 	columnHelper.accessor('pf', {
-		cell: (info) => info.getValue().toFixed(1),
+		cell: (info) => info.getValue(),
 		header: () => 'PF',
 		footer: (info) => info.column.id,
-		size: 35,
+		size: 32,
 	}),
 ];
 
-const StatsTable: React.FC = () => {
+const BoxScoreTable: React.FC = () => {
 	const [data] = useState(() => [...defaultData]);
 
 	return (
@@ -206,4 +187,4 @@ const StatsTable: React.FC = () => {
 	);
 };
 
-export default StatsTable;
+export default BoxScoreTable;

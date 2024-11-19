@@ -19,6 +19,7 @@ export type Division =
 
 export type Player = {
 	team: Team;
+	position?: string;
 	firstName: string;
 	lastName: string;
 	height: string;
