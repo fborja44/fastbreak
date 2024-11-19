@@ -7,7 +7,7 @@
 }
 
 html {
-	width: 350px;
+	width: 335px;
 	height: 600px;
 	@apply text-gray-700 bg-stone-50;
 }

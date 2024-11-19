@@ -1,15 +1,11 @@
 interface LogoProps {
 	logo?: string;
-	size?: number;
+	className?: string;
 }
 
-const Logo = ({ logo = 'NBA', size = 7 }: LogoProps) => {
+const Logo = ({ logo = 'NBA', className = 'h-6 w-6' }: LogoProps) => {
 	return (
-		<img
-			className={`h-${size} w-${size}`}
-			src={`/assets/img/logos/${logo}.svg`}
-			alt=''
-		/>
+		<img className={className} src={`/assets/img/logos/${logo}.svg`} alt='' />
 	);
 };
 

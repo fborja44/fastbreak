@@ -30,7 +30,10 @@ export interface FooterButtonProps extends LinkProps {
 
 export const FooterButton = ({ to, icon, label }: FooterButtonProps) => {
 	return (
-		<Link to={to} className='container-col text-gray-400 pt-0.5'>
+		<Link
+			to={to}
+			className='container-col text-gray-400 pt-0.5 hover:text-blue-500'
+		>
 			{icon && <span className='w-4 h-4'>{icon}</span>}
 			{label && <span className='whitespace-nowrap text-xxs'>{label}</span>}
 		</Link>

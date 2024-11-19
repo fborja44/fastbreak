@@ -9,9 +9,9 @@ const theme: {
 	[color: string]: { bg: string; border: string; color: string };
 } = {
 	default: {
-		bg: 'bg-stone-50',
-		border: 'border-stone-200',
-		color: 'text-stone-600',
+		bg: 'bg-white',
+		border: 'border-gray-200',
+		color: 'text-gray-00',
 	},
 	red: {
 		bg: 'bg-red-100',
@@ -58,7 +58,7 @@ const Token = ({ children, icon, variant = 'default' }: TokenProps) => {
 			className={`container-row w-fit rounded-md px-1.5 py-0.5 gap-x-1 select-none ${colors.color} ${colors.bg} border ${colors.border}`}
 		>
 			{icon && <span className='w-4 h-4 container-center'>{icon}</span>}
-			<span className={`font-semibold text-xxs uppercase whitespace-nowrap`}>
+			<span className={`font-medium text-xxs whitespace-nowrap`}>
 				{children}
 			</span>
 		</div>

@@ -11,7 +11,7 @@ const TeamCard = ({ team }: TeamCardProps) => {
 	return (
 		<Card>
 			<div className='flex flex-row gap-1'>
-				<Logo logo={team.abbreviation} size={10} />
+				<Logo logo={team.abbreviation} className='w-8 h-8' />
 				<div className='flex flex-col'>
 					<span className='text-xs font-semibold'>{team.fullName}</span>
 					<span className='text-xxs text-gray-500'>

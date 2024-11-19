@@ -3,14 +3,15 @@ export default {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		fontFamily: {
-			sans: ['Inter', 'sans-serif'],
+			sans: ['Roboto', 'sans-serif'],
 		},
 		extend: {
 			fontSize: {
-				xxs: '0.625rem' /* 11px */,
+				xxxs: '0.625rem' /* 10px */,
+				xxs: '0.6875rem' /* 11px */,
 			},
 			boxShadow: {
-				paper: '0px 4px 4px 0px rgba(11, 12, 40, 0.05)',
+				paper: '0px 2px 2px 0px rgba(11, 12, 60, 0.04)',
 			},
 		},
 	},

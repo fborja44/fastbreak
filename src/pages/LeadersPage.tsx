@@ -20,11 +20,13 @@ const LeadersPage = () => {
 						</Dropdown>
 					</HeaderRow>
 					<Tabs>
-						<StyledTab icon={<Logo logo='NBA' size={5} />}>League</StyledTab>
-						<StyledTab icon={<Logo logo='EAST' size={5} />}>
+						<StyledTab icon={<Logo logo='NBA' className='h-5 w-5' />}>
+							League
+						</StyledTab>
+						<StyledTab icon={<Logo logo='EAST' className='h-5 w-5' />}>
 							East Conf.
 						</StyledTab>
-						<StyledTab icon={<Logo logo='WEST' size={5} />}>
+						<StyledTab icon={<Logo logo='WEST' className='h-5 w-5' />}>
 							West Conf.
 						</StyledTab>
 					</Tabs>
@@ -47,7 +49,7 @@ const StatSection = ({ stat }: StatSectionProps) => {
 	return (
 		<div className='mt-1'>
 			<CardList>
-				<span className='text-[11px] uppercase text-gray-500'>{stat}</span>
+				<span className='text-xxs uppercase text-gray-500'>{stat}</span>
 				{new Array(5).fill(null).map((_val, i) => (
 					<LeaderCard number={i + 1} />
 				))}

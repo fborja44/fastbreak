@@ -12,18 +12,22 @@ const TeamsPage = () => {
 	return (
 		<PageLayout
 			headerTitle='League Teams'
-			headerIcon={<Logo size={5} />}
+			headerIcon={<Logo className='h-5 w-5' />}
 			headerContent={
 				<>
 					<HeaderRow>
 						<Searchbar placeholder='Search for a team...' />
 					</HeaderRow>
 					<Tabs>
-						<StyledTab icon={<Logo logo='NBA' size={5} />}>League</StyledTab>
-						<StyledTab icon={<Logo logo='EAST' size={5} />}>
+						<StyledTab
+							icon={<Logo logo='NBA' className='h-6 w-3.5 object-cover' />}
+						>
+							League
+						</StyledTab>
+						<StyledTab icon={<Logo logo='EAST' className='h-5 w-5' />}>
 							East Conf.
 						</StyledTab>
-						<StyledTab icon={<Logo logo='WEST' size={5} />}>
+						<StyledTab icon={<Logo logo='WEST' className='h-5 w-5' />}>
 							West Conf.
 						</StyledTab>
 					</Tabs>
@@ -47,7 +51,7 @@ const DivisionSection = ({ division }: DivisionSectionProps) => {
 	return (
 		<div className='mt-1'>
 			<CardList>
-				<span className='text-[11px] uppercase text-gray-500'>{division}</span>
+				<span className='text-xxs uppercase text-gray-500'>{division}</span>
 				{teams
 					.filter((team) => team.division === division)
 					.map((team) => (

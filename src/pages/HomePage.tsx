@@ -22,10 +22,10 @@ const HomePage = () => {
 							My Teams
 						</Token>
 						<Token icon={<img src='/assets/img/logos/EAST.svg' alt='' />}>
-							EAST
+							East
 						</Token>
 						<Token icon={<img src='/assets/img/logos/WEST.svg' alt='' />}>
-							WEST
+							West
 						</Token>
 						{teams
 							.sort((a, b) => {
