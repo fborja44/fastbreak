@@ -1,16 +1,10 @@
-import {
-	Column,
-	createColumnHelper,
-	flexRender,
-	getCoreRowModel,
-	useReactTable,
-} from '@tanstack/react-table';
-import React, { CSSProperties, useRef, useState } from 'react';
+import { createColumnHelper } from '@tanstack/react-table';
+import React, { useState } from 'react';
 import { Team } from '../../types';
 import { teams } from '../../common/teams';
 import Logo from '../Logo/Logo';
 import { formatPercent } from '../../utils/string';
-import { useDraggable } from 'react-use-draggable-scroll';
+import ScrollableTable from './ScrollableTable';
 
 interface Standings {
 	number: number;
@@ -26,30 +20,6 @@ interface Standings {
 	last10: string;
 	streak: number;
 }
-
-/**
- * Creates style classes for pinned columns.
- * @param column The column to style.
- * @returns The style class for the column.
- */
-const getCommonPinningStyles = (column: Column<Standings>): CSSProperties => {
-	const isPinned = column.getIsPinned();
-	const isLastLeftPinnedColumn =
-		isPinned === 'left' && column.getIsLastColumn('left');
-	const isFirstRightPinnedColumn =
-		isPinned === 'right' && column.getIsFirstColumn('right');
-
-	return {
-		borderLeft: isFirstRightPinnedColumn ? '1px solid #E5E7EB' : undefined,
-		borderRight: isLastLeftPinnedColumn ? `1px solid #E5E7EB` : undefined,
-		left: isPinned === 'left' ? `${column.getStart('left')}px` : undefined,
-		right: isPinned === 'right' ? `${column.getAfter('right')}px` : undefined,
-		opacity: isPinned ? 0.95 : 1,
-		position: isPinned ? 'sticky' : 'relative',
-		width: column.getSize(),
-		zIndex: isPinned ? 1 : 0,
-	};
-};
 
 const defaultData: Standings[] = teams
 	.filter((team) => team.conference === 'EAST')
@@ -88,7 +58,7 @@ const columns = [
 			const team = info.getValue();
 			return (
 				<div className='container-row gap-1'>
-					<Logo logo={team.abbreviation} />
+					<Logo logo={team.abbreviation} className='w-6 h-6' />
 					<span className='font-medium'>{team.name}</span>
 					{/* <span className='text-xxxs text-blue-500'>{team.abbreviation}</span> */}
 				</div>
@@ -174,80 +144,16 @@ const columns = [
 	}),
 ];
 
-const ScrollableTable: React.FC = () => {
-	const ref =
-		useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
-	const { events } = useDraggable(ref);
-
+const StandingsTable: React.FC = () => {
 	const [data] = useState(() => [...defaultData]);
 
-	const table = useReactTable({
-		data,
-		columns,
-		getCoreRowModel: getCoreRowModel(),
-		initialState: {
-			columnPinning: {
-				left: ['number', 'team'],
-			},
-		},
-	});
-
 	return (
-		<div
-			className='overflow-x-auto w-full scrollbar-hide select-none'
-			{...events}
-			ref={ref}
-		>
-			<table
-				className='min-w-full table-fixed border-collapse'
-				style={{
-					width: table.getTotalSize(),
-				}}
-			>
-				<thead>
-					{table.getHeaderGroups().map((headerGroup) => (
-						<tr key={headerGroup.id}>
-							{headerGroup.headers.map((header) => {
-								const { column } = header;
-								return (
-									<th
-										key={header.id}
-										className='bg-stone-50 text-xxxs text-gray-500 font-normal uppercase py-1 px-2 border-b border-gray-200 text-left'
-										style={{ ...getCommonPinningStyles(column) }}
-									>
-										{header.isPlaceholder
-											? null
-											: flexRender(
-													header.column.columnDef.header,
-													header.getContext()
-											  )}
-									</th>
-								);
-							})}
-						</tr>
-					))}
-				</thead>
-				<tbody>
-					{table.getRowModel().rows.map((row) => (
-						<tr key={row.id}>
-							{row.getVisibleCells().map((cell) => {
-								const { column } = cell;
-								return (
-									<td
-										key={cell.id}
-										className='bg-white text-gray-700 py-0.5 px-2 text-xs border-b border-gray-200'
-										style={{ ...getCommonPinningStyles(column) }}
-									>
-										{flexRender(cell.column.columnDef.cell, cell.getContext())}
-									</td>
-								);
-							})}
-						</tr>
-					))}
-				</tbody>
-			</table>
-		</div>
+		<ScrollableTable
+			data={data}
+			columns={columns}
+			pinnedColumns={['number', 'team']}
+		/>
 	);
 };
 
-export default ScrollableTable;
+export default StandingsTable;

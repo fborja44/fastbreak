@@ -20,7 +20,9 @@ const LeadersPage = () => {
 						</Dropdown>
 					</HeaderRow>
 					<Tabs>
-						<StyledTab icon={<Logo logo='NBA' className='h-5 w-5' />}>
+						<StyledTab
+							icon={<Logo logo='NBA' className='h-6 w-3.5 object-cover' />}
+						>
 							League
 						</StyledTab>
 						<StyledTab icon={<Logo logo='EAST' className='h-5 w-5' />}>

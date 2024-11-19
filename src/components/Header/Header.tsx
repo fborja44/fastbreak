@@ -37,7 +37,7 @@ const Header = ({ children, title, rounded }: HeaderProps) => {
 			<div className='w-full flex flex-col gap-2 pt-1 items-start'>
 				<h1 className='container-row justify-start gap-x-1.5 px-2.5 text-gray-800'>
 					{/* {icon && <span className='w-5 h-5'>{icon}</span>} */}
-					<span className='font-semibold text-sm'>{title}</span>
+					<span className='font-medium text-sm'>{title}</span>
 				</h1>
 				{children}
 			</div>

@@ -37,7 +37,7 @@ const TeamSlot = ({ team, score = '-' }: TeamSlotProps) => {
 				<span className='text-gray-900 font-medium text-xs'>
 					{team?.fullName ?? 'Team'}
 				</span>
-				<span className='text-gray-500 text-xxs ml-1'>
+				<span className='text-gray-500 text-xxs ml-1 relative top-[1px]'>
 					{team?.abbreviation ?? 'NBA'}
 				</span>
 			</div>

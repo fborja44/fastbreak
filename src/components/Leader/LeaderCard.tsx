@@ -10,7 +10,7 @@ const LeaderCard = ({ number }: LeaderCardProps) => {
 		<Card>
 			<div className='container-row justify-between'>
 				<div className='container-row'>
-					<span className='w-6 h-6 container-center text-gray-400 text-sm font-bold'>
+					<span className='w-6 h-6 container-center text-gray-400 text-xl italic font-bold'>
 						{number}
 					</span>
 					<Logo className='h-8 w-8' />

@@ -3,6 +3,7 @@ interface TokenProps {
 	icon?: React.ReactNode;
 	variant?: string;
 	value?: string;
+	onClick?: () => unknown;
 }
 
 const theme: {
@@ -50,17 +51,25 @@ const theme: {
 	},
 };
 
-const Token = ({ children, icon, variant = 'default' }: TokenProps) => {
+const Token = ({
+	children,
+	icon,
+	variant = 'default',
+	onClick,
+}: TokenProps) => {
 	const colors = theme[variant];
 
 	return (
 		<div
-			className={`container-row w-fit rounded-md px-1.5 py-0.5 gap-x-1 select-none ${colors.color} ${colors.bg} border ${colors.border}`}
+			className={`container-row w-fit rounded-md px-1.5 py-0.5 gap-x-1 select-none ${
+				colors.color
+			} ${colors.bg} border ${colors.border} ${
+				onClick ? 'hover:cursor-pointer' : ''
+			}`}
+			onClick={onClick}
 		>
 			{icon && <span className='w-4 h-4 container-center'>{icon}</span>}
-			<span className={`font-medium text-xxs whitespace-nowrap`}>
-				{children}
-			</span>
+			<span className={`text-xxs whitespace-nowrap`}>{children}</span>
 		</div>
 	);
 };

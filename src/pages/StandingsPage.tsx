@@ -2,7 +2,7 @@ import PageLayout from '../components/PageLayout/PageLayout';
 import { TrophyIcon } from '@heroicons/react/24/outline';
 import Tabs, { StyledTab } from '../components/Tabs/Tabs';
 import Logo from '../components/Logo/Logo';
-import ScrollableTable from '../components/Table/Table';
+import StandingsTable from '../components/Table/StandingsTable';
 
 const StandingsPage = () => {
 	return (
@@ -33,7 +33,7 @@ const StandingsPage = () => {
 					<span className='text-gray-500'>Eastern Conference</span>
 				</div>
 				<div className='overflow-x-auto scrollbar-hide'>
-					<ScrollableTable />
+					<StandingsTable />
 				</div>
 				<div className='container-row w-full h-full pt-2 pb-1.5 px-1.5 gap-1 text-gray-600 bg-white uppercase text-xxs border-b border-gray-200'>
 					<span className='w-6 h-6'>
@@ -42,7 +42,7 @@ const StandingsPage = () => {
 					<span className='text-gray-500'>Western Conference</span>
 				</div>
 				<div className='overflow-x-auto scrollbar-hide'>
-					<ScrollableTable />
+					<StandingsTable />
 				</div>
 			</section>
 		</PageLayout>
