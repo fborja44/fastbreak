@@ -14,7 +14,8 @@ import { useDraggable } from 'react-use-draggable-scroll';
  * @returns The style class for the column.
  */
 const getCommonPinningStyles = <RowData,>(
-	column: Column<RowData>
+	column: Column<RowData>,
+	isHeader: boolean = false
 ): CSSProperties => {
 	const isPinned = column.getIsPinned();
 	const isLastLeftPinnedColumn =
@@ -27,10 +28,11 @@ const getCommonPinningStyles = <RowData,>(
 		borderRight: isLastLeftPinnedColumn ? `1px solid #E5E7EB` : undefined,
 		left: isPinned === 'left' ? `${column.getStart('left')}px` : undefined,
 		right: isPinned === 'right' ? `${column.getAfter('right')}px` : undefined,
+		top: isHeader ? '0px' : undefined,
 		opacity: isPinned ? 0.95 : 1,
-		position: isPinned ? 'sticky' : 'relative',
+		position: isPinned || isHeader ? 'sticky' : 'relative',
 		width: column.getSize(),
-		zIndex: isPinned ? 1 : 0,
+		zIndex: 0 + (isHeader ? 1 : 0) + (isPinned ? 1 : 0),
 	};
 };
 
@@ -54,6 +56,7 @@ const ScrollableTable = <RowData,>({
 		data,
 		columns,
 		getCoreRowModel: getCoreRowModel(),
+		enableRowPinning: true,
 		initialState: {
 			columnPinning: {
 				left: pinnedColumns ?? [],
@@ -63,7 +66,7 @@ const ScrollableTable = <RowData,>({
 
 	return (
 		<div
-			className='overflow-x-auto w-full scrollbar-hide select-none'
+			className='overflow-x-auto w-full h-full scrollbar-hide select-none'
 			{...events}
 			ref={ref}
 		>
@@ -82,7 +85,7 @@ const ScrollableTable = <RowData,>({
 									<th
 										key={header.id}
 										className='bg-gray-50 text-xxxs text-gray-500 font-normal uppercase py-1 px-2 border-b border-gray-200 text-left'
-										style={{ ...getCommonPinningStyles(column) }}
+										style={{ ...getCommonPinningStyles(column, true) }}
 									>
 										{header.isPlaceholder
 											? null
