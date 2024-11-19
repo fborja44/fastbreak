@@ -32,18 +32,14 @@ const StandingsPage = () => {
 					</span>
 					<span className='text-gray-500'>Eastern Conference</span>
 				</div>
-				<div className='overflow-x-auto scrollbar-hide'>
-					<StandingsTable />
-				</div>
+				<StandingsTable />
 				<div className='container-row w-full h-full pt-2 pb-1.5 px-1.5 gap-1 text-gray-600 bg-white uppercase text-xxs border-b border-gray-200'>
 					<span className='w-6 h-6'>
 						<Logo logo='WEST' />
 					</span>
 					<span className='text-gray-500'>Western Conference</span>
 				</div>
-				<div className='overflow-x-auto scrollbar-hide'>
-					<StandingsTable />
-				</div>
+				<StandingsTable />
 			</section>
 		</PageLayout>
 	);

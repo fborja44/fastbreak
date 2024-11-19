@@ -254,6 +254,15 @@ export const teams: Team[] = [
 	},
 ];
 
+export const defaultTeam: Team = {
+	city: 'NBA',
+	abbreviation: 'NBA',
+	name: 'Team',
+	fullName: 'NBA Team',
+	conference: 'EAST',
+	division: 'Atlantic',
+};
+
 export const divisions: Division[] = [
 	'Atlantic',
 	'Central',
