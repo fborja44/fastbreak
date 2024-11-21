@@ -149,6 +149,7 @@ const StandingsTable: React.FC = () => {
 
 	return (
 		<ScrollableTable
+			id='standings'
 			data={data}
 			columns={columns}
 			pinnedColumns={['number', 'team']}

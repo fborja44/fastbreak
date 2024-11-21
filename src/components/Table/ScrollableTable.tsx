@@ -37,6 +37,7 @@ const getCommonPinningStyles = <RowData,>(
 };
 
 interface ScrollableTableProps<RowData> {
+	id: string;
 	data: RowData[];
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	columns: ColumnDef<RowData, any>[];
@@ -44,6 +45,7 @@ interface ScrollableTableProps<RowData> {
 }
 
 const ScrollableTable = <RowData,>({
+	id,
 	data,
 	columns,
 	pinnedColumns,
@@ -77,13 +79,13 @@ const ScrollableTable = <RowData,>({
 				}}
 			>
 				<thead>
-					{table.getHeaderGroups().map((headerGroup) => (
-						<tr key={headerGroup.id}>
-							{headerGroup.headers.map((header) => {
+					{table.getHeaderGroups().map((headerGroup, i) => (
+						<tr key={`${id}-${headerGroup.id}=${i}`}>
+							{headerGroup.headers.map((header, j) => {
 								const { column } = header;
 								return (
 									<th
-										key={header.id}
+										key={`${id}-${header.id}-${j}`}
 										className='bg-gray-50 text-xxxs text-gray-500 font-normal uppercase py-1 px-2 border-b border-gray-200 text-left'
 										style={{ ...getCommonPinningStyles(column, true) }}
 									>
@@ -100,13 +102,13 @@ const ScrollableTable = <RowData,>({
 					))}
 				</thead>
 				<tbody>
-					{table.getRowModel().rows.map((row) => (
-						<tr key={row.id} className='group'>
-							{row.getVisibleCells().map((cell) => {
+					{table.getRowModel().rows.map((row, i) => (
+						<tr key={`${id}-${row.id}-${i}`} className='group'>
+							{row.getVisibleCells().map((cell, j) => {
 								const { column } = cell;
 								return (
 									<td
-										key={cell.id}
+										key={`${id}-${cell.id}=${j}`}
 										className='bg-white h-7 group-hover:bg-blue-50 text-gray-700 py-0.5 px-2 text-xs border-b border-gray-200'
 										style={{ ...getCommonPinningStyles(column) }}
 									>

@@ -35,7 +35,21 @@ const router = createHashRouter([
 			{ path: '/teams', element: <TeamsPage /> },
 			{ path: '/stats', element: <StatsPage /> },
 			{ path: '/leaders', element: <LeadersPage /> },
-			{ path: '/box-score', element: <BoxScorePage /> },
+			{
+				path: '/box-score/:id',
+				element: <BoxScorePage />,
+				loader: async ({ params }) => {
+					const { id } = params;
+					if (!id) return [];
+					return {
+						stats: await fetchData('stats', {
+							'game_ids[]': id,
+							per_page: '40',
+						}),
+						game: await fetchData(`games/${id}`),
+					};
+				},
+			},
 		],
 	},
 ]);

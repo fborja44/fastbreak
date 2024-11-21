@@ -26,12 +26,12 @@ const GameCard = ({ game }: GameCardProps) => {
 							<span>{formatTime(new Date(game.status))}</span>
 						) : game.status !== 'Final' ? (
 							/* TODO: Period Tokens */
-							<span className='bg-green-400 border border-green-200 text-green-50 px-1.5 py-0.5 rounded-md text-xxxs'>
+							<span className='bg-green-400 border border-green-200 text-green-50 px-1.5 py-[2px] rounded-md text-xxxs'>
 								{timeDisplay}{' '}
 								{/* TODO: Tick time down (by best case, ignore time stoppages unless refresh) */}
 							</span>
 						) : (
-							<span className='bg-gray-900 border border-gray-300 text-gray-300 px-1.5 py-0.5 rounded-md text-xxxs'>
+							<span className='bg-gray-700 border border-gray-300 text-gray-300 px-1.5 py-[2px] rounded-md text-xxxs'>
 								{timeDisplay}{' '}
 								{/* TODO: Tick time down (by best case, ignore time stoppages unless refresh) */}
 							</span>
@@ -45,11 +45,18 @@ const GameCard = ({ game }: GameCardProps) => {
 			/>
 			<TeamSlot
 				team={game.visitor_team}
-				score={isStarted ? game.home_team_score : undefined}
+				score={isStarted ? game.visitor_team_score : undefined}
 			/>
 			<div className='w-full container-row justify-between px-6 text-xxs border-t border-gray-100 pt-2 mt-0.5'>
-				<StyledLink to='/box-score'>Box Score</StyledLink>
-				<StyledLink to='/box-score'>Betting Odds</StyledLink>
+				<StyledLink
+					to={`/box-score/${game.id}`}
+					disabled={timeDisplay !== 'Final'}
+				>
+					Box Score
+				</StyledLink>
+				<StyledLink to='/box-score' disabled>
+					Betting Odds
+				</StyledLink>
 			</div>
 		</Card>
 	);

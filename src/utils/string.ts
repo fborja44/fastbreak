@@ -6,6 +6,8 @@ import { DataGame, DataPeriod } from '../types/data';
  * @returns The formatted percentage.
  */
 export const formatPercent = (num: number): string => {
+	if (!num) return '-';
+
 	// Round the number to 3 decimal points
 	const roundedNum = num.toFixed(3);
 
