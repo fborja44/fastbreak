@@ -10,6 +10,8 @@ import TeamsPage from './pages/TeamsPage.tsx';
 import LeadersPage from './pages/LeadersPage.tsx';
 import StatsPage from './pages/StatsPage.tsx';
 import BoxScorePage from './pages/BoxScorePage.tsx';
+import { fetchData } from './api/index.ts';
+import { apiDate } from './utils/date.ts';
 
 const router = createHashRouter([
 	{
@@ -21,7 +23,14 @@ const router = createHashRouter([
 			</Layout>
 		),
 		children: [
-			{ path: '/', element: <HomePage /> },
+			{
+				path: '/',
+				element: <HomePage />,
+				loader: async () =>
+					await fetchData('games', {
+						'dates[]': apiDate(new Date()),
+					}),
+			},
 			{ path: '/standings', element: <StandingsPage /> },
 			{ path: '/teams', element: <TeamsPage /> },
 			{ path: '/stats', element: <StatsPage /> },

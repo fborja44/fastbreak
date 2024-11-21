@@ -2,7 +2,7 @@ export type Team = {
 	city: string;
 	abbreviation: string;
 	name: string;
-	fullName: string;
+	full_name: string;
 	conference: Conference;
 	division: Division;
 };

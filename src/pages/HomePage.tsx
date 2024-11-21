@@ -6,8 +6,12 @@ import GameCard from '../components/Game/GameCard';
 import { HeaderRow } from '../components/Header/Header';
 import CardList from '../components/Card/CardList';
 import TeamTokens from '../components/Token/TeamTokens';
+import { useLoaderData } from 'react-router-dom';
+import { DataGame } from '../types/data';
 
 const HomePage = () => {
+	const data = useLoaderData() as DataGame[];
+
 	return (
 		<PageLayout
 			headerTitle='Game Feed'
@@ -25,8 +29,8 @@ const HomePage = () => {
 			headerRounded
 		>
 			<CardList>
-				{new Array(6).fill(null).map(() => (
-					<GameCard />
+				{data.map((game, i) => (
+					<GameCard key={i} game={game} />
 				))}
 			</CardList>
 		</PageLayout>

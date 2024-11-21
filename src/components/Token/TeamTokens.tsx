@@ -16,6 +16,7 @@ const TeamTokens = () => {
 				})
 				.map((team) => (
 					<Token
+						key={`token-${team.abbreviation}`}
 						icon={
 							<img src={`/assets/img/logos/${team.abbreviation}.svg`} alt='' />
 						}
