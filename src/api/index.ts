@@ -22,13 +22,13 @@ export const fetchData = async (
 ): Promise<unknown> => {
 	// Construct query string from the query object if it exists
 	const queryString = query ? '?' + new URLSearchParams(query).toString() : '';
+	const url = `${BASE_URL}/${endpoint}${queryString}`;
+
+	console.log(url);
 
 	try {
 		// Fetch data from the API with optional query parameters
-		const { data } = await axios.get(
-			`${BASE_URL}/${endpoint}${queryString}`,
-			DEFAULT_CONFIG
-		);
+		const { data } = await axios.get(url, DEFAULT_CONFIG);
 		return data.data;
 	} catch (error) {
 		// TODO: Implement better error handling

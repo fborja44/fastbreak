@@ -8,10 +8,12 @@ import { DataPeriod } from '../types/data';
  */
 export const formatDate = (date: Date): string => {
 	const options: Intl.DateTimeFormatOptions = {
+		weekday: 'long', // This will display the full name of the day
 		year: 'numeric',
 		month: 'long',
 		day: '2-digit',
 	};
+	return date.toLocaleDateString('en-US', options);
 	return date.toLocaleDateString('en-US', options);
 };
 
@@ -57,4 +59,26 @@ export const isGameStarted = (gameStatus: string | DataPeriod): boolean => {
 		/^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d{1,3})?)?(Z|([+-]\d{2}:\d{2})))?$/;
 
 	return isoRegex.test(gameStatus);
+};
+
+/**
+ * Gets the date before a given date.
+ * @param date The current date.
+ * @returns The day before.
+ */
+export const getDayBefore = (date: Date): Date => {
+	const previousDay = new Date(date);
+	previousDay.setDate(previousDay.getDate() - 1);
+	return previousDay;
+};
+
+/**
+ * Gets the date after a given date.
+ * @param date The current date.
+ * @returns The day after
+ */
+export const getDayAfter = (date: Date): Date => {
+	const nextDay = new Date(date);
+	nextDay.setDate(nextDay.getDate() + 1);
+	return nextDay;
 };
