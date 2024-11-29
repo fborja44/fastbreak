@@ -42,14 +42,14 @@ const HomePage = () => {
 					<HeaderRow>
 						<div className='w-full container-row justify-between mt-0.5'>
 							<button
-								className='hover:text-blue-500'
+								className='hover:text-blue-400'
 								onClick={() => setDate(getDayBefore(date))}
 							>
 								<ChevronLeftIcon className='h-4 w-4' />
 							</button>
 							<span className='text-sm font-medium'>{formatDate(date)}</span>
 							<button
-								className='hover:text-blue-500'
+								className='hover:text-blue-400'
 								onClick={() => setDate(getDayAfter(date))}
 							>
 								<ChevronRightIcon className='h-4 w-4' />

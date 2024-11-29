@@ -10,11 +10,11 @@ interface TeamCardProps {
 const TeamCard = ({ team }: TeamCardProps) => {
 	return (
 		<Card>
-			<div className='flex flex-row gap-1'>
+			<div className='flex flex-row gap-1.5'>
 				<Logo logo={team.abbreviation} className='w-8 h-8' />
 				<div className='flex flex-col'>
-					<span className='text-xs font-semibold'>{team.fullName}</span>
-					<span className='text-xxs text-gray-500'>
+					<span className='text-xs font-semibold'>{team.full_name}</span>
+					<span className='text-xxs text-neutral-400'>
 						{team.abbreviation} 0-0
 					</span>
 				</div>

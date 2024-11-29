@@ -16,7 +16,7 @@ const GameCard = ({ game }: GameCardProps) => {
 
 	return (
 		<Card>
-			<div className='container-row justify-between text-gray-500 text-xxs'>
+			<div className='container-row justify-between text-gray-400 text-xxs'>
 				<span>
 					{!game.postseason ? 'NBA Regular Season' : 'NBA Post Season'}
 				</span>
@@ -26,12 +26,12 @@ const GameCard = ({ game }: GameCardProps) => {
 							<span>{formatTime(new Date(game.status))}</span>
 						) : game.status !== 'Final' ? (
 							/* TODO: Period Tokens */
-							<span className='bg-green-400 border border-green-200 text-green-50 px-1.5 py-[2px] rounded-md text-xxxs'>
+							<span className='bg-green-500 border border-green-300 text-green-50 px-1.5 py-[2px] rounded text-xxxs'>
 								{timeDisplay}{' '}
 								{/* TODO: Tick time down (by best case, ignore time stoppages unless refresh) */}
 							</span>
 						) : (
-							<span className='bg-gray-700 border border-gray-300 text-gray-300 px-1.5 py-[2px] rounded-md text-xxxs'>
+							<span className='bg-neutral-900 border border-neutral-700 text-neutral-300 px-1.5 py-[2px] rounded text-xxxs'>
 								{timeDisplay}{' '}
 								{/* TODO: Tick time down (by best case, ignore time stoppages unless refresh) */}
 							</span>
@@ -47,7 +47,7 @@ const GameCard = ({ game }: GameCardProps) => {
 				team={game.visitor_team}
 				score={isStarted ? game.visitor_team_score : undefined}
 			/>
-			<div className='w-full container-row justify-between px-6 text-xxs border-t border-gray-100 pt-2 mt-0.5'>
+			<div className='w-full container-row justify-between px-6 text-xxs border-t border-neutral-700 pt-2 mt-0.5'>
 				<StyledLink
 					to={`/box-score/${game.id}`}
 					disabled={timeDisplay !== 'Final'}
@@ -74,14 +74,14 @@ const TeamSlot = ({ team, score }: TeamSlotProps) => {
 		<div className='container-row justify-between w-full'>
 			<div className='container-row gap-1'>
 				<Logo logo={team?.abbreviation} />
-				<span className='text-gray-900 font-medium text-xs'>
-					{team?.full_name ?? 'Team'}
-				</span>
-				<span className='text-gray-500 text-xxs ml-1 relative top-[1px]'>
+				<span className='font-medium text-xs'>{team?.full_name ?? 'Team'}</span>
+				<span className='text-neutral-400 text-xxs ml-1 relative top-[1px]'>
 					{team?.abbreviation ?? 'NBA'}
 				</span>
 			</div>
-			<span className={`${score ? 'text-[13px]' : 'text-base'}`}>
+			<span
+				className={`${score ? 'text-[13px]' : 'text-base text-neutral-500'}`}
+			>
 				{score ?? '-'}
 			</span>
 			{/* TODO: Show team record if game has not yet started */}

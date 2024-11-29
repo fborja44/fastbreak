@@ -51,7 +51,7 @@ const StatSection = ({ stat }: StatSectionProps) => {
 	return (
 		<div className='mt-1'>
 			<CardList>
-				<span className='text-xxs uppercase text-gray-500'>{stat}</span>
+				<span className='text-xxs uppercase text-neutral-500'>{stat}</span>
 				{new Array(5).fill(null).map((_val, i) => (
 					<LeaderCard number={i + 1} />
 				))}

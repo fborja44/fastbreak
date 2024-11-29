@@ -6,7 +6,7 @@ const BackButton = () => {
 
 	return (
 		<button
-			className='hover:text-blue-500 text-gray-500'
+			className='hover:text-blue-400 text-neutral-500'
 			onClick={() => navigate(-1)}
 		>
 			<ArrowLeftIcon className='w-4 h-4' />

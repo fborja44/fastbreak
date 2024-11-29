@@ -10,9 +10,9 @@ const theme: {
 	[color: string]: { bg: string; border: string; color: string };
 } = {
 	default: {
-		bg: 'bg-white',
-		border: 'border-gray-200',
-		color: 'text-gray-00',
+		bg: 'bg-neutral-900',
+		border: 'border-neutral-700',
+		color: 'text-neutral-400',
 	},
 	red: {
 		bg: 'bg-red-100',

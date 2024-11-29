@@ -51,7 +51,7 @@ const DivisionSection = ({ division }: DivisionSectionProps) => {
 	return (
 		<div className='mt-1'>
 			<CardList>
-				<span className='text-xxs uppercase text-gray-500'>{division}</span>
+				<span className='text-xxs uppercase text-neutral-500'>{division}</span>
 				{teams
 					.filter((team) => team.division === division)
 					.map((team) => (

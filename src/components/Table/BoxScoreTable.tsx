@@ -18,7 +18,7 @@ const columns = [
 						{player.first_name.charAt(0)}. {player.last_name}
 					</span>
 					{player.position && (
-						<span className='text-xxxs text-gray-500 ml-0.5'>
+						<span className='text-xxxs text-neutral-500 ml-0.5'>
 							{player.position}
 						</span>
 					)}

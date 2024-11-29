@@ -49,7 +49,7 @@ const StatsPage = () => {
 						<Logo logo={game?.home_team.abbreviation} className='w-5 h-5' />
 					}
 				>
-					<span className='text-blue-500'>
+					<span className='text-blue-400'>
 						{game.home_team.full_name ?? 'Home Team'}
 					</span>
 				</TableHeader>
@@ -59,7 +59,7 @@ const StatsPage = () => {
 						<Logo logo={game?.visitor_team.abbreviation} className='w-5 h-5' />
 					}
 				>
-					<span className='text-blue-500'>
+					<span className='text-blue-400'>
 						{game?.visitor_team.full_name ?? 'Away Team'}
 					</span>
 				</TableHeader>
@@ -77,13 +77,13 @@ interface BoxScoreHeaderProps {
 
 export const BoxScoreHeader = ({ game }: BoxScoreHeaderProps) => {
 	return (
-		<section className='container-row justify-around w-full border-t border-gray-200 py-1.5 px-2 bg-gray-50'>
+		<section className='container-row justify-around w-full border-t border-neutral-200 py-1.5 px-2 bg-neutral-50'>
 			<BoxScoreTeam team={game.home_team} />
 			<div className='container-col gap-0.5'>
 				<span className='bg-green-400 rounded text-green-50 text-xs py-0.5 px-1.5'>
 					12:00
 				</span>
-				<span className='text-xxxs text-gray-500'>1st QT</span>
+				<span className='text-xxxs text-neutral-500'>1st QT</span>
 			</div>
 			<BoxScoreTeam team={game.visitor_team} reverse />
 		</section>

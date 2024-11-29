@@ -25,7 +25,14 @@ export const formatPercent = (num: number): string => {
  * @returns The formatted game time.
  */
 export const getGameTime = (game: DataGame): string => {
+	if (game.time === 'Half') {
+		return 'Halftime';
+	}
 	switch (game.status as string | DataPeriod) {
+		case 'Halftime':
+			return 'Halftime';
+		case 'Final':
+			return 'Final';
 		case '1st Qtr':
 			return `Q1 ${game.time}`;
 		case '2nd Qtr':
@@ -34,10 +41,6 @@ export const getGameTime = (game: DataGame): string => {
 			return `Q2 ${game.time}`;
 		case '4th Qtr':
 			return `Q2 ${game.time}`;
-		case 'Halftime':
-			return 'Halftime';
-		case 'Final':
-			return 'Final';
 		default:
 			return 'Unknown';
 	}

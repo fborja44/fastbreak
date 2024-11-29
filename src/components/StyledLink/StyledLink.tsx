@@ -13,8 +13,8 @@ const StyledLink = ({
 }: StyledLinkProps) => {
 	return (
 		<Link
-			className={`text-blue-500 ${
-				!disabled ? 'hover:text-indigo-500' : 'opacity-60 pointer-events-none'
+			className={`text-blue-400 ${
+				!disabled ? 'hover:text-indigo-400' : 'opacity-60 pointer-events-none'
 			}`}
 			to={to}
 			target={external ? '_blank' : ''}

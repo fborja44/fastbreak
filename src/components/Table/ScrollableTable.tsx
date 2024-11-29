@@ -24,8 +24,8 @@ const getCommonPinningStyles = <RowData,>(
 		isPinned === 'right' && column.getIsFirstColumn('right');
 
 	return {
-		borderLeft: isFirstRightPinnedColumn ? '1px solid #E5E7EB' : undefined,
-		borderRight: isLastLeftPinnedColumn ? `1px solid #E5E7EB` : undefined,
+		borderLeft: isFirstRightPinnedColumn ? '1px solid #3F3F46' : undefined,
+		borderRight: isLastLeftPinnedColumn ? `1px solid #3F3F46` : undefined,
 		left: isPinned === 'left' ? `${column.getStart('left')}px` : undefined,
 		right: isPinned === 'right' ? `${column.getAfter('right')}px` : undefined,
 		top: isHeader ? '0px' : undefined,
@@ -86,7 +86,7 @@ const ScrollableTable = <RowData,>({
 								return (
 									<th
 										key={`${id}-${header.id}-${j}`}
-										className='bg-gray-50 text-xxxs text-gray-500 font-normal uppercase py-1 px-2 border-b border-gray-200 text-left'
+										className='bg-neutral-900 text-xxxs text-neutral-400 font-normal uppercase py-1 px-2 border-b border-neutral-700 text-left'
 										style={{ ...getCommonPinningStyles(column, true) }}
 									>
 										{header.isPlaceholder
@@ -109,7 +109,7 @@ const ScrollableTable = <RowData,>({
 								return (
 									<td
 										key={`${id}-${cell.id}=${j}`}
-										className='bg-white h-7 group-hover:bg-blue-50 text-gray-700 py-0.5 px-2 text-xs border-b border-gray-200'
+										className='bg-neutral-800 h-7 group-hover:bg-neutral-700 text-neutral-300 py-0.5 px-2 text-xs border-b border-neutral-700'
 										style={{ ...getCommonPinningStyles(column) }}
 									>
 										{flexRender(cell.column.columnDef.cell, cell.getContext())}

@@ -45,7 +45,7 @@ const columnHelper = createColumnHelper<Standings>();
 const columns = [
 	columnHelper.accessor('number', {
 		cell: (info) => (
-			<span className='text-gray-400 text-xxs font-medium'>
+			<span className='text-neutral-400 text-xxs font-medium'>
 				{info.getValue()}
 			</span>
 		),
@@ -57,10 +57,10 @@ const columns = [
 		cell: (info) => {
 			const team = info.getValue();
 			return (
-				<div className='container-row gap-1'>
+				<div className='container-row gap-1.5'>
 					<Logo logo={team.abbreviation} className='w-6 h-6' />
 					<span className='font-medium'>{team.name}</span>
-					{/* <span className='text-xxxs text-blue-500'>{team.abbreviation}</span> */}
+					{/* <span className='text-xxxs text-blue-400'>{team.abbreviation}</span> */}
 				</div>
 			);
 		},

@@ -7,8 +7,8 @@ interface DropdownProps extends SelectProps {
 
 const Dropdown = ({ children }: DropdownProps) => {
 	return (
-		<div className='w-full container-row relative text-gray-700'>
-			<Select className='bg-white w-full rounded-lg border text-xxs appearance-none border-gray-200 px-2.5 py-1.5 focus:outline-none'>
+		<div className='w-full container-row relative text-neutral-700'>
+			<Select className='bg-white w-full rounded-lg border text-xxs appearance-none border-neutral-200 px-2.5 py-1.5 focus:outline-none'>
 				{children}
 			</Select>
 			<ChevronDownIcon className='w-3 h-3 absolute right-2.5' />

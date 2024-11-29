@@ -23,7 +23,7 @@ const Header = ({
 }: HeaderProps) => {
 	return (
 		<header
-			className={`container-col z-10 relative w-full bg-white shadow-paper pt-1.5 border-b border-gray-200 ${
+			className={`container-col z-10 relative w-full bg-neutral-900 shadow-paper pt-1.5 border-b border-neutral-700 ${
 				rounded ? 'rounded-b-xl pb-0.5' : ''
 			}`}
 		>
@@ -35,7 +35,7 @@ const Header = ({
 					<Link to='/'>
 						<img src='/assets/icons/icon32.png' className='h-5 w-5' />
 					</Link>
-					<div className='flex-1 container-row justify-end gap-2 text-gray-400'>
+					<div className='flex-1 container-row justify-end gap-2 text-neutral-500'>
 						<HeaderLink to='/'>
 							<BellIcon className='w-5 h-5' />
 						</HeaderLink>
@@ -46,7 +46,7 @@ const Header = ({
 				</div>
 			)}
 			<div className='w-full flex flex-col pt-1 items-start'>
-				<h1 className='container-row justify-start gap-x-2 px-2.5 text-gray-800 mb-2'>
+				<h1 className='container-row justify-start gap-x-2 px-2.5 mb-2'>
 					{/* {icon && <span className='w-5 h-5'>{icon}</span>} */}
 					{showBackButton && <BackButton />}
 					<span className='font-medium text-sm'>{title}</span>
@@ -85,7 +85,7 @@ interface HeaderLinkProps extends LinkProps {
 
 export const HeaderLink = ({ children, to }: HeaderLinkProps) => {
 	return (
-		<Link to={to} className='container-center hover:text-blue-500'>
+		<Link to={to} className='container-center hover:text-blue-400'>
 			{children}
 		</Link>
 	);

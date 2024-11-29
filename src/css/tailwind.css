@@ -2,18 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
+:root {
 	box-sizing: border-box;
 }
 
 html {
 	width: 335px;
 	height: 600px;
-	@apply text-gray-800 bg-stone-50;
+	@apply text-white bg-black;
 }
 
 body {
 	margin: 0px;
+	background: radial-gradient(
+		43.72% 22.63% at 50% 50%,
+		rgba(255, 255, 255, 0.15) 0%,
+		rgba(255, 255, 255, 0) 90%
+	);
 }
 
 table {
@@ -30,12 +35,12 @@ table {
 
 ::-webkit-scrollbar-track {
 	/* Customize the scrollbar track */
-	@apply bg-gray-100;
+	@apply bg-neutral-600;
 }
 
 ::-webkit-scrollbar-thumb {
 	/* Customize the scrollbar thumb */
-	@apply bg-gray-200 rounded-full;
+	@apply bg-neutral-500 rounded-full;
 }
 
 @layer utilities {
@@ -60,5 +65,9 @@ table {
 
 	.scrollbar-hide::-webkit-scrollbar {
 		display: none;
+	}
+
+	.bg-card {
+		@apply bg-neutral-700/50 backdrop-blur-md;
 	}
 }

@@ -70,7 +70,7 @@ const columnHelper = createColumnHelper<PlayerStats>();
 const columns = [
 	columnHelper.accessor('number', {
 		cell: (info) => (
-			<span className='text-gray-400 text-xxs font-medium'>
+			<span className='text-neutral-400 text-xxs font-medium'>
 				{info.getValue()}
 			</span>
 		),
@@ -82,12 +82,12 @@ const columns = [
 		cell: (info) => {
 			const player = info.getValue();
 			return (
-				<div className='container-row gap-1'>
+				<div className='container-row gap-1.5'>
 					<Logo logo={player.team.abbreviation} className='w-6 h-6' />
 					<span className='font-medium'>
 						{player.firstName.charAt(0)}. {player.lastName}
 					</span>
-					<span className='text-xxxs text-blue-500 ml-0.5'>
+					<span className='text-xxxs text-blue-400'>
 						{player.team.abbreviation}
 					</span>
 				</div>
